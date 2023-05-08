@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('transaksi_deposits', function (Blueprint $table) {
             $table->string('no_struk_deposit')->primary();
-            $table->unsignedBigInteger('id_promo');
+            $table->unsignedBigInteger('id_promo')->nullable();
             $table->foreign('id_promo')->references('id')->on('promos')->onDelete('cascade');
             $table->unsignedBigInteger('id_member');
             $table->foreign('id_member')->references('id')->on('members')->onDelete('cascade');

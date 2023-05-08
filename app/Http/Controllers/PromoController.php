@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Promo;
 use Exception;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\PromoResource;
+use App\Http\Resources\PegawaiResource;
 
 class PromoController extends Controller
 {
@@ -13,7 +13,7 @@ class PromoController extends Controller
     {
         $promo = Promo::latest()->get();
         //render view with posts
-        return new PromoResource(
+        return new PegawaiResource(
             true,
             'List Data Promo',
             $promo
@@ -25,7 +25,9 @@ class PromoController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_promo' => 'required',
             'jenis_promo' => 'required',
-            'deskripsi_promo' => 'required'
+            'deskripsi_promo' => 'required',
+            'minimal_deposit' => 'required',
+            'bonus_promo' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -35,7 +37,9 @@ class PromoController extends Controller
         $promo = Promo::create([
             'nama_promo' => $request->nama_promo,
             'jenis_promo' => $request->jenis_promo,
-            'deskripsi_promo' => $request->deskripsi_promo
+            'deskripsi_promo' => $request->deskripsi_promo,
+            'minimal_deposit' => $request->minimal_deposit,
+            'bonus_promo' => $request->bonus_promo
         ]);
         return new PromoResource(true, 'Data Promo Berhasil Ditambahkan!', $promo);
     }
@@ -45,7 +49,9 @@ class PromoController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_promo' => 'required',
             'jenis_promo' => 'required',
-            'deskripsi_promo' => 'required'
+            'deskripsi_promo' => 'required',
+            'minimal_deposit' => 'required',
+            'bonus_promo' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
@@ -54,7 +60,9 @@ class PromoController extends Controller
         $promo->update([
             'nama_promo' => $request->nama_promo,
             'jenis_promo' => $request->jenis_promo,
-            'deskripsi_promo' => $request->deskripsi_promo
+            'deskripsi_promo' => $request->deskripsi_promo,
+            'minimal_deposit' => $request->minimal_deposit,
+            'bonus_promo' => $request->bonus_promo
         ]);
         return new PromoResource(true, 'Data Promo berhasil diubah!', $promo);
     }

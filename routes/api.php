@@ -33,3 +33,4 @@ Route::apiResource('/member', App\Http\Controllers\MemberController::class);
 Route::apiResource('/user', App\Http\Controllers\UserController::class);
 Route::apiResource('/jadwalumum', App\Http\Controllers\JadwalUmumController::class);
 Route::apiResource('/transaksiDeposit', App\Http\Controllers\TransaksiDepositController::class);
+Route::apiResource('/jadwalharian', App\Http\Controllers\JadwalHarianController::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Promo;
 use App\Models\Member;
+use App\Models\Pegawai;
 use App\Models\TransaksiDeposit;
 use Exception;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class TransaksiDepositController extends Controller
 {
     public function store(Request $request)
     {
+
         if($request->nominal_deposit <= 500000 ){
             return response(
                 ['message'=> 'Transaksi Gagal, Minimal Deposit Rp 500.000',] , 400);
@@ -40,11 +42,13 @@ class TransaksiDepositController extends Controller
                 $total_deposit = $nominal_deposit;
             }
 
+
+            // $pegawai = Pegawai::findorfail($request->id_pegawai);
             $depositUang = TransaksiDeposit::firstOrCreate  ([
                 'tgl_deposit' => date('Y-m-d H:i:s', strtotime('now')),
                 'nominal_deposit' => $nominal_deposit,
                 'bonus_deposit' => $bonus_deposit,
-                'total_deposit' =>   $total_deposit,
+                'total_deposit' => $total_deposit,
                 'id_pegawai' => $request->id_pegawai,
                 'id_member'=> $request->id_member,
                 'id_promo' => $id_promo,
