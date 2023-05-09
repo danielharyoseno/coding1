@@ -31,8 +31,6 @@ class MemberController extends Controller
             'notel_member' => 'required',
             'username_member' => 'required',
             'password_member' => 'required',
-            'saldo_deposit_member' => 'required',
-            'masa_berlaku_member' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -47,8 +45,6 @@ class MemberController extends Controller
             'notel_member' => $request->notel_member,
             'username_member' => $request->username_member,
             'password_member' => $request->password_member,
-            'saldo_deposit_member' => $request->saldo_deposit_member,
-            'masa_berlaku_member' => $request->masa_berlaku_member
         ]);
         return new MemberResource(true, 'Data Member Berhasil Ditambahkan!', $member);
     }
@@ -63,8 +59,6 @@ class MemberController extends Controller
             'notel_member' => 'required',
             'username_member' => 'required',
             'password_member' => 'required',
-            'saldo_deposit_member' => 'required',
-            'masa_berlaku_member' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
@@ -78,8 +72,6 @@ class MemberController extends Controller
             'notel_member' => $request->notel_member,
             'username_member' => $request->username_member,
             'password_member' => $request->password_member,
-            'saldo_deposit_member' => $request->saldo_deposit_member,
-            'masa_berlaku_member' => $request->masa_berlaku_member
         ]);
         return new MemberResource(true, 'Data Member berhasil diubah!', $member);
     }

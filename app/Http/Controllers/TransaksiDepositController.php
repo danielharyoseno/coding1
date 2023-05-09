@@ -16,7 +16,7 @@ class TransaksiDepositController extends Controller
 
         if($request->nominal_deposit <= 500000 ){
             return response(
-                ['message'=> 'Transaksi Gagal, Minimal Deposit Rp 500.000',] , 400);
+                ['message'=> 'Minimal Deposit Rp 500.000',] , 400);
         }
         try
         {
@@ -42,8 +42,6 @@ class TransaksiDepositController extends Controller
                 $total_deposit = $nominal_deposit;
             }
 
-
-            // $pegawai = Pegawai::findorfail($request->id_pegawai);
             $depositUang = TransaksiDeposit::firstOrCreate  ([
                 'tgl_deposit' => date('Y-m-d H:i:s', strtotime('now')),
                 'nominal_deposit' => $nominal_deposit,
@@ -53,10 +51,8 @@ class TransaksiDepositController extends Controller
                 'id_member'=> $request->id_member,
                 'id_promo' => $id_promo,
                 'no_struk_deposit' => '' 
-                // 'no_struk' => $transa['no_struk_transaksi']
             ]);
-            //Update data di tabel member
-            //cari data member
+            
             $member = Member::find($request->id_member);
             $sebelum_transaksi = $member->saldo_deposit_member;
             $member->saldo_deposit_member =  $sebelum_transaksi + $total_deposit;

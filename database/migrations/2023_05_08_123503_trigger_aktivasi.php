@@ -20,7 +20,7 @@ return new class extends Migration
             DECLARE last_id INT; 
             DECLARE new_id VARCHAR(255); 
             SET last_id = ( 
-                SELECT MAX(RIGHT(no_struk_transaksi_aktivasi,3))
+                SELECT MAX(RIGHT(no_struk_aktivasi,3))
                 FROM transaksi_aktivasis ); 
             IF last_id IS NULL THEN 
                 SET new_id = CONCAT(DATE_FORMAT(NOW(), '%y.%m.'), '001'); 

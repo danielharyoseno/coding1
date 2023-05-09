@@ -28,14 +28,7 @@ class JadwalHarianController extends Controller
         );
     }
 
-    // public function index()
-    // {
-    //     $jadwalharian = JadwalHarian::with(['instruktur','Jadwal_Umum'])->get();
-    //     return new JadwalUmumResource(true, 'Data Jadwal Harian',$jadwalharian);
-    // }
-
     public function store(){
-        // cek udah generate atau belum
         $cekJadwalHarian = JadwalHarian::where('tanggal_kelas', '>', Carbon::now()->startOfWeek(Carbon::SUNDAY)->format('Y-m-d'))->first();
         if(!is_null($cekJadwalHarian)){
             return response()->json([
@@ -45,11 +38,9 @@ class JadwalHarianController extends Controller
             ]);
         }
         
-        //generate
         $start_date = Carbon::now()->startOfWeek(Carbon::SUNDAY)->addDay();
         $end_date = Carbon::now()->startOfWeek(Carbon::SUNDAY)->addDays(7);
         
-        //Mapping Hari
         $map = [
             'monday' => 'Senin',
             'tuesday' => 'Selasa',
@@ -67,7 +58,6 @@ class JadwalHarianController extends Controller
             ->get();
 
             foreach($jadwal_umum as $jd){
-                //Agar tidak double
                 $jadwal_harian = DB::table('jadwal_harians')
                 ->where('tanggal_kelas','=',$date->toDateString())
                 ->where('id_jadwal_umum', '=', $jd->id)
@@ -88,7 +78,7 @@ class JadwalHarianController extends Controller
     }
     public function update($id_jadwal_harian){
         $jadwal_harian = JadwalHarian::find($id_jadwal_harian);
-        $jadwal_harian->keterangan = 'Diliburkan';
+        $jadwal_harian->keterangan = '(Diliburkan)';
         $jadwal_harian->update();
         return response()->json(['message' => 'Jadwal Harian berhasil diliburkan'], 200);
     }
