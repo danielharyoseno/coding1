@@ -44,3 +44,6 @@ Route::get('/deaktivasiMember', [App\Http\Controllers\DeaktivasiController::clas
 
 Route::get('/absenInstruktur', [App\Http\Controllers\DeaktivasiController::class, 'absenInstruktur']);
 Route::get('/resetInstruktur', [App\Http\Controllers\DeaktivasiController::class, 'resetInstruktur']);
+
+//booking
+Route::apiResource('/bookingGym', App\Http\Controllers\BookingGymController::class);

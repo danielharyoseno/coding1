@@ -163,22 +163,18 @@ class DatabaseSeeder extends Seeder
             'email_pegawai' => 'jono@gmail.com',
         ]);
 
-        // Gym::create([
-        //     'sesi' => '1',
-        //     'kapasitas' => '10',
-        // ]);
-        // Gym::create([
-        //     'sesi' => '2',
-        //     'kapasitas' => '10',
-        // ]);
-        // Gym::create([
-        //     'sesi' => '3',
-        //     'kapasitas' => '10',
-        // ]);
-        // Gym::create([
-        //     'sesi' => '4',
-        //     'kapasitas' => '10',
-        // ]);
+        Gym::create([
+            'kapasitas' => '10',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+        ]);
 
         Instruktur::create([
             'nama_instruktur'=>'Asep',

@@ -58,7 +58,6 @@ class DeaktivasiController extends Controller
 
         $members = Member::where('masa_berlaku_member', '<=', $today)
                           ->get();
-
         foreach ($members as $member) {
         $member->fill([
                 'status_membership' => 'Tidak Aktif',

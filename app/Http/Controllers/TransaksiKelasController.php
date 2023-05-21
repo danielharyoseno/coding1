@@ -17,7 +17,7 @@ class TransaksiKelasController extends Controller
 {
     public function index()
     {
-        $paketKelas = TransaksiKelas::with(['pegawai','member','promo','keals'])->get();
+        $paketKelas = TransaksiKelas::with(['pegawai','member','promo','kelas'])->get();
         if(count($paketKelas)>0){
             return new MemberResource(true,'List Data Transaksi Deposit Paket Kelas',
             $paketKelas);
