@@ -13,13 +13,18 @@ class TransaksiKelas extends Model
     protected $fillable =[
         'no_struk_kelas',
         'id_promo',
-        'id_member',
         'id_pegawai',
+        'id_member',
         'id_kelas',
         'tgl_deposit_kelas',
         'jmlh_kelas',
         'nominal_kelas',
         'expired_kelas',
+        'total_deposit_kelas',
+    ];
+
+    protected $casts = [
+        'no_struk_kelas' => 'string'
     ];
 
     public function member()

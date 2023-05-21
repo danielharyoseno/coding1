@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_instruktur');
             $table->integer('notel_instruktur');
-            $table->integer('jmlh_keterlambatan');
+            $table->integer('jmlh_keterlambatan')->nullable();;
             $table->string('email_instruktur');
             $table->string('password_instruktur');
             $table->string('username_instruktur');

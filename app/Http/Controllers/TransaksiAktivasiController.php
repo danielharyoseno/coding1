@@ -27,6 +27,7 @@ class TransaksiAktivasiController extends Controller
         }
         $expired = date('Y-m-d H:i:s', strtotime('+1 year', strtotime($tgl)));
         $member->masa_berlaku_member = $expired;
+        $member->status_membership = 'Aktif';
         $member->save();
         
         return response([

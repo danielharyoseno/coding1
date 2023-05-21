@@ -35,3 +35,12 @@ Route::apiResource('/jadwalumum', App\Http\Controllers\JadwalUmumController::cla
 Route::apiResource('/transaksiDeposit', App\Http\Controllers\TransaksiDepositController::class);
 Route::apiResource('/jadwalharian', App\Http\Controllers\JadwalHarianController::class);
 Route::apiResource('/transaksiAktivasi', App\Http\Controllers\TransaksiAktivasiController::class);
+Route::apiResource('/transaksiKelas', App\Http\Controllers\TransaksiKelasController::class);
+Route::apiResource('/depositKelas', App\Http\Controllers\DepositKelasController::class);
+Route::apiResource('/ijinInstruktur', App\Http\Controllers\IjinInstrukturController::class);
+
+Route::get('/memberKedaluwarsa', [App\Http\Controllers\DeaktivasiController::class, 'memberKadeluarsa']);
+Route::get('/deaktivasiMember', [App\Http\Controllers\DeaktivasiController::class, 'memberDeaktivasi']);
+
+Route::get('/absenInstruktur', [App\Http\Controllers\DeaktivasiController::class, 'absenInstruktur']);
+Route::get('/resetInstruktur', [App\Http\Controllers\DeaktivasiController::class, 'resetInstruktur']);

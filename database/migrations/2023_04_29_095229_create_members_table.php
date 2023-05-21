@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('notel_member');
             $table->string('username_member');
             $table->string('password_member');
+            $table->string('status_membership')->nullable();
             $table->integer('saldo_deposit_member')->nullable();
             $table->date('masa_berlaku_member')->nullable();
             $table->timestamps();
