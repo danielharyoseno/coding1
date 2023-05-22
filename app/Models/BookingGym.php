@@ -17,6 +17,7 @@ class BookingGym extends Model
         'tgl_reservasi_gym',
         'id_gym',
         'jam_presensi_gym',
+        'status_presensi',
     ];
 
     

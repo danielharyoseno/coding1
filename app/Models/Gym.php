@@ -10,7 +10,8 @@ class Gym extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'kapasitas'
+        'kapasitas',
+        'slot_waktu'
     ];
     public function getCreatedAtAttribute(){
         if(!is_null($this->attributes['created_at'])){

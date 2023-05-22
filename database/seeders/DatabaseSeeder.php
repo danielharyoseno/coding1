@@ -165,15 +165,31 @@ class DatabaseSeeder extends Seeder
 
         Gym::create([
             'kapasitas' => '10',
+            'slot_waktu' => '7-9',
         ]);
         Gym::create([
             'kapasitas' => '10',
+            'slot_waktu' => '9-11',
         ]);
         Gym::create([
             'kapasitas' => '10',
+            'slot_waktu' => '11-13',
         ]);
         Gym::create([
             'kapasitas' => '10',
+            'slot_waktu' => '13-15',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+            'slot_waktu' => '15-17',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+            'slot_waktu' => '17-19',
+        ]);
+        Gym::create([
+            'kapasitas' => '10',
+            'slot_waktu' => '19-21',
         ]);
 
         Instruktur::create([

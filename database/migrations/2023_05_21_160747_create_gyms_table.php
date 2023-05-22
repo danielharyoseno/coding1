@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('gyms', function (Blueprint $table) {
             $table->id();
             $table->integer('kapasitas');
+            $table->string('slot_waktu');
             $table->timestamps();
         });
     }

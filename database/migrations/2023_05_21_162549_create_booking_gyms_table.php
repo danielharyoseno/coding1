@@ -22,7 +22,8 @@ return new class extends Migration
             $table->date('tgl_reservasi_gym');
             $table->unsignedBigInteger('id_gym');
             $table->foreign('id_gym')->references('id')->on('gyms')->onDelete('cascade');
-            $table->time('jam_presensi_gym')->nullable();
+            $table->dateTime('waktu_presensi_gym')->nullable();
+            $table->string('status_presensi');
             $table->timestamps();
         });
     }
