@@ -135,7 +135,7 @@ class TransaksiKelasController extends Controller
                     ]);
                     return response([
                         'message'=> 'Transaksi Deposit Paket Kelas Berhasil',
-                        'data' => ['TransaksiKelas' => $transaksipaketkelas, 'deposit_kelas' => $depositKelas, 'sisa_deposit_kelas' => $depositKelas->sisa_deposit_kelas, 'nomor_struk_kelas' => TransaksiDepositPaketKelas::latest()->first()->no_struk_kelas, 'nama_member' => $member->nama_member, 'nomor_member' => $member->no_member, 'nama_pegawai' => $pegawai->nama_pegawai],
+                        'data' => ['TransaksiKelas' => $transaksipaketkelas, 'deposit_kelas' => $depositKelas, 'sisa_deposit_kelas' => $depositKelas->sisa_deposit_kelas, 'nomor_struk_kelas' => TransaksiKelas::latest()->first()->no_struk_kelas, 'nama_member' => $member->nama_member, 'nomor_member' => $member->no_member, 'nama_pegawai' => $pegawai->nama_pegawai],
                         'total' => $total_deposit_kelas,
                     ]);
                 }else{

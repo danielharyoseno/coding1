@@ -47,3 +47,7 @@ Route::get('/resetInstruktur', [App\Http\Controllers\DeaktivasiController::class
 
 //booking
 Route::apiResource('/bookingGym', App\Http\Controllers\BookingGymController::class);
+Route::apiResource('/bookingKelas', App\Http\Controllers\BookingKelasController::class);
+
+Route::get('/laporanGym', [App\Http\Controllers\LaporanController::class, 'aktivitasGymBulanan']);
+Route::get('/laporanKelas', [App\Http\Controllers\LaporanController::class, 'aktivitasKelasBulanan']);

@@ -20,6 +20,7 @@ class TransaksiKelas extends Model
         'jmlh_kelas',
         'nominal_kelas',
         'expired_kelas',
+        'bonus_deposit_paket',
         'total_deposit_kelas',
     ];
 

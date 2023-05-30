@@ -23,10 +23,11 @@ return new class extends Migration
             $table->foreign('id_pegawai')->references('id')->on('pegawais')->onDelete('cascade');
             $table->unsignedBigInteger('id_kelas');
             $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
-            $table->integer('bonus_deposit_paket');
+            $table->integer('bonus_deposit_paket')->nullable();
             $table->date('tgl_deposit_kelas');
             $table->integer('jmlh_kelas');
             $table->integer('nominal_kelas');
+            $table->integer('total_deposit_kelas');
             $table->date('expired_kelas');
             $table->timestamps();
         });
